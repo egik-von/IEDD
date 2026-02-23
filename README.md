@@ -1,10 +1,16 @@
 <img width="223" height="96" alt="image" src="https://github.com/user-attachments/assets/056c9ac0-ce22-4549-9ec2-f5043c8d0ecc" />
 
 🚗IEDD：A Interactive Enhanced Driving Dataset for Autonomous Driving
+
+<img width="1107" height="353" alt="image" src="https://github.com/user-attachments/assets/72937afe-3362-4525-9570-a7b3caca8b74" />
  
  This repository contains the official code for the paper "IEDD: A Interactive Enhanced Driving Dataset for Autonomous Driving".
 
+ <img width="1107" height="540" alt="image" src="https://github.com/user-attachments/assets/c92c68c4-7f9d-4311-a2ef-81abf7d2b5c1" />
+
+
 1) Dataset Preparation
+
 1.1 Prepare trajdata cache (root_dir/)
 
 For each supported raw dataset, follow the download instructions inside:
@@ -29,13 +35,13 @@ Note: the provided csv_dir/ already contains some IEDD CSV files, but you should
 
 We recommend Python 3.10 for the IEDD environment. You may need to adjust the Python version depending on the raw dataset preprocessing dependencies.
 
-conda create -n IEDD python=3.10 -y
-conda activate IEDD
+  conda create -n IEDD python=3.10 -y
+  conda activate IEDD
 3) Install Dependencies
 
 Install required packages with:
 
-pip install -r requirements.txt
+  pip install -r requirements.txt
 4) Generate Vision Clips + Action Semantics (IEDD-traj2VisAct.py)
 
 This step consumes:
@@ -52,12 +58,12 @@ extracted action semantics (*.actions.json)
 
 Example:
 
-python IEDD-traj2VisAct.py \
-  --input-dir  csv_dir \
-  --cache-root root_dir \
-  --desired-data YOUR_DATASET_LABEL \
-  --output-dir outputs/IEDD-VQA_vision \
-  --timerange 10.0
+  python IEDD-traj2VisAct.py \
+    --input-dir  csv_dir \
+    --cache-root root_dir \
+    --desired-data YOUR_DATASET_LABEL \
+    --output-dir outputs/IEDD-VQA_vision \
+    --timerange 10.0
 
 --desired-data must match the dataset label used by trajdata in your cache.
 
@@ -79,11 +85,11 @@ and generates a ShareGPT-format JSON containing Q1–Q5.
 
 Example:
 
-python IEDD-2vqa.py \
-  --root_dir   root_dir \
-  --actions_dir simulation_results/actions \
-  --videos_dir outputs/IEDD-VQA_vision \
-  --output_json outputs/IEDD-VQA_sharegpt_Q1Q5.json
+  python IEDD-2vqa.py \
+    --root_dir   root_dir \
+    --actions_dir simulation_results/actions \
+    --videos_dir outputs/IEDD-VQA_vision \
+    --output_json outputs/IEDD-VQA_sharegpt_Q1Q5.json
 
 IEDD-2vqa
 
@@ -93,13 +99,13 @@ This step reads the Q1–Q5 JSON and appends Q6 (counterfactual reasoning) to bu
 
 Example:
 
-python IEDD-traj2Q6.py \
-  --json-input  outputs/IEDD-VQA_sharegpt_Q1Q5.json \
-  --json-output outputs/IEDD-VQA_test_Q1Q6.json \
-  --input-dir   csv_dir \
-  --cache-root  root_dir \
-  --desired-data YOUR_DATASET_LABEL \
-  --timerange   10.0
+  python IEDD-traj2Q6.py \
+    --json-input  outputs/IEDD-VQA_sharegpt_Q1Q5.json \
+    --json-output outputs/IEDD-VQA_test_Q1Q6.json \
+    --input-dir   csv_dir \
+    --cache-root  root_dir \
+    --desired-data YOUR_DATASET_LABEL \
+    --timerange   10.0
 
 IEDD-traj2Q6
 
@@ -107,8 +113,8 @@ IEDD-traj2Q6
 
 Set your OpenRouter key (recommended via environment variable), then run evaluation on the generated test JSON.
 
-export OPENROUTER_API_KEY="YOUR_KEY"
-python IEDD-benchmark.py
+  export OPENROUTER_API_KEY="YOUR_KEY"
+  python IEDD-benchmark.py
 
 Before running, update in IEDD-benchmark.py:
 
