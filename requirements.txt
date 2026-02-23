@@ -1,0 +1,21 @@
+# Core
+numpy>=1.23
+pandas>=1.5
+tqdm>=4.64
+PyYAML>=6.0
+
+# VLM / Judge API client (your code uses `from openai import OpenAI`)
+openai>=2.21.0
+
+# Video frame IO (cv2)
+opencv-python>=4.7
+
+# Optional academic text metric (your code has try/except import)
+rouge-score>=0.1.2
+
+# Trajectory dataset loader
+trajdata>=1.4.0
+
+# Plotting / animations (used heavily in IEDD_compute.py)
+matplotlib>=3.6
+pillow>=9.0
