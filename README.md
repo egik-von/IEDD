@@ -42,6 +42,10 @@ Download the IEDD and IEDD-VQA CSV files from Zenodo:
 
 - https://doi.org/10.5281/zenodo.18742437
 
+Download the IEDD and IEDD-VQA CSV files from Huggingface:
+
+- https://huggingface.co/datasets/Egikk/IEDD
+
 Put the downloaded CSV files into `csv_dir/`.
 
 > **Note**: The provided `csv_dir/` may already contain some IEDD CSV files, but you should **replace/complete** them with the full Zenodo release for full reproduction.
